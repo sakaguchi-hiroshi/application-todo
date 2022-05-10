@@ -12,19 +12,19 @@
       background-color: #ffffff;
       border-radius: 5px;
       padding: 10px;
-      
+
     }
     
   </style>
 </head>
 <body>
   <div class="article">
-    <form action="/" method="POST">
+    <form action="/todo/create" method="POST">
       @csrf
       <table>
         <tr>
           <td>
-            <input type="text" name="content">
+            <input type="text">
           </td>
           <td>
             <input type="submit" value="追加">
@@ -32,7 +32,7 @@
         </tr>
       </table>
     </form>
-    <form action="/todo/create" method="POST">
+    <form action="/todo/update" method="POST">
       @csrf
       <table>
         <tr>
@@ -50,10 +50,10 @@
             <input type="text" value="{{$item->content}}">
           </td>
           <td>
-            <input type="submit" value="更新">
+            <input type="submit" name="update" value="更新">
           </td>
           <td>
-            <input type="submit" value="削除">
+            <input type="submit" name="delete" value="削除">
           </td>
         </tr>
         @endforeach
