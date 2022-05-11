@@ -32,7 +32,7 @@
         </tr>
       </table>
     </form>
-    <form action="/todo/update" method="POST">
+    <form action="/" method="POST">
       @csrf
       <table>
         <tr>
