@@ -24,7 +24,7 @@
       <table>
         <tr>
           <td>
-            <input type="text">
+            <input type="text" name="content">
           </td>
           <td>
             <input type="submit" value="追加">
@@ -32,7 +32,7 @@
         </tr>
       </table>
     </form>
-    <form action="/" method="POST">
+    <form action="/todo/update" method="POST">
       @csrf
       <table>
         <tr>
@@ -47,7 +47,7 @@
             {{$item->created_at}}
           </td>
           <td>
-            <input type="text" value="{{$item->content}}">
+            <input type="text" name="content" value="{{$item->content}}">
           </td>
           <td>
             <input type="submit" name="update" value="更新">
