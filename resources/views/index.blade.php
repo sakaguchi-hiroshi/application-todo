@@ -32,7 +32,7 @@
         </tr>
       </table>
     </form>
-    <form action="/todo/update" method="POST">
+    <form action="todo/update" method="POST">
       @csrf
       <table>
         <tr>
@@ -41,13 +41,13 @@
           <th>更新</th>
           <th>削除</th>
         </tr>
-        @foreach ($items as $item)
+        @foreach ($items as $form)
         <tr>
           <td>
-            {{$item->created_at}}
+            {{$form->created_at}}
           </td>
           <td>
-            <input type="text" name="content" value="{{$item->content}}">
+            <input type="text" name="content" value="{{$form->content}}">
           </td>
           <td>
             <input type="submit" name="update" value="更新">

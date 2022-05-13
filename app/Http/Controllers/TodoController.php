@@ -23,7 +23,7 @@ class TodoController extends Controller
     public function edit(Request $request)
     {
         $form = Todo::find($request->id);
-        return view('index', ['item' => $form]);
+        return view('index', ['form' => $form]);
     }
     public function update(Request $request)
     {
@@ -32,8 +32,8 @@ class TodoController extends Controller
             $article = Todo::find($request->id);
             $article->content = $request->content;
             $article->save();
-            return redirect('/');
         }
+        return redirect('/');
     }
 }
 
