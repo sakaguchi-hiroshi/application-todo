@@ -27,18 +27,27 @@ class TodoController extends Controller
     }
     public function update(Request $request)
     {
-        dd($request->content);
+        // dd($request->all());
         if ($request->has('update')){
             $article = Todo::find($request->id);
             $article->content = $request->content;
             $article->save();
+            return redirect('/');
         }
-        return redirect('/');
+    }
+    public function delete(Request $request)
+    {
+        
+        if ($request->has('delete')){
+            $article = Todo::find($request->id);
+            $article->delete();
+            return redirect('/');
+        }
     }
 }
 
 // $this->validate($request, Todo::$rules);
-// $form = $request->all();
+// $article = $request->id;
 // unset($form['_token']);
-// Todo::where('id', $request->id)->update($form);
+// Todo::where('id', $request->id)->update($article);
 // return redirect('/');

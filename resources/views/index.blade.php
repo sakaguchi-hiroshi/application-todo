@@ -32,33 +32,37 @@
         </tr>
       </table>
     </form>
-    <form action="todo/update" method="POST">
-      @csrf
-      <table>
-        <tr>
-          <th>作成日</th>
-          <th>タスク名</th>
-          <th>更新</th>
-          <th>削除</th>
-        </tr>
-        @foreach ($items as $form)
-        <tr>
+    <table>
+      <tr>
+        <th>作成日</th>
+        <th>タスク名</th>
+        <th>更新</th>
+        <th>削除</th>
+      </tr>
+      @foreach ($items as $form)
+      <tr>
           <td>
             {{$form->created_at}}
           </td>
-          <td>
-            <input type="text" name="content" value="{{$form->content}}">
-          </td>
-          <td>
-            <input type="submit" name="update" value="更新">
-          </td>
-          <td>
-            <input type="submit" name="delete" value="削除">
-          </td>
+          <form action="todo/update" method="POST">
+          @csrf
+            <td>
+              <input type="text" name="content" value="{{$form->content}}">
+              <input type="hidden" name="id" value="{{$form->id}}">
+            </td>
+            <td>
+              <input type="submit" name="update" value="更新">
+            </td>
+          </form>
+          <form action="todo/delete" method="POST">
+            @csrf
+            <td>
+              <input type="submit" name="delete" value="削除">
+            </td>
+          </form>
         </tr>
         @endforeach
       </table>
-    </form>
   </div>
 </body>
 </html>
