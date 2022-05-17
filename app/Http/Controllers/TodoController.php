@@ -27,7 +27,7 @@ class TodoController extends Controller
     }
     public function update(Request $request)
     {
-        // dd($request->all());
+        
         if ($request->has('update')){
             $article = Todo::find($request->id);
             $article->content = $request->content;
@@ -37,12 +37,11 @@ class TodoController extends Controller
     }
     public function delete(Request $request)
     {
-        
-        if ($request->has('delete')){
-            $article = Todo::find($request->id);
-            $article->delete();
-            return redirect('/');
-        }
+        // dd($request->all());
+        $article = Todo::find($request->id);
+        $article->id = $request->id;
+        $article->delete();
+        return redirect('/');
     }
 }
 
