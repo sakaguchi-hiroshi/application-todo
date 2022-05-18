@@ -29,6 +29,7 @@ class TodoController extends Controller
     {
         
         if ($request->has('update')){
+            $this->validate($request, Todo::$rules);
             $article = Todo::find($request->id);
             $article->content = $request->content;
             $article->save();
@@ -45,7 +46,7 @@ class TodoController extends Controller
     }
 }
 
-// $this->validate($request, Todo::$rules);
+
 // $article = $request->id;
 // unset($form['_token']);
 // Todo::where('id', $request->id)->update($article);

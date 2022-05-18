@@ -12,6 +12,13 @@
   <div class="container">
     <div class="card">
       <p class="card_ttl">Todo List</p>
+      @if (count($errors) > 0)
+        <ul>
+          @foreach ($errors->all() as $error)
+            <li>{{$error}}</li>
+          @endforeach
+        </ul>
+      @endif
       <form class="card_add" action="/todo/create" method="POST">
         @csrf
         <input class="card_add_input" type="text" name="content">
